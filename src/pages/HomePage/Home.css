@@ -1,0 +1,19 @@
+.title {
+  font-size: 3em;
+  margin: 20px;
+  font-weight: 700;
+  color: #7E22CE;
+  letter-spacing: -1px;
+}
+
+.hero-image {
+  width: 25vw;
+  height: 35vh;
+}
+
+.hero-text {
+  font-size: 20px;
+  margin: 20px 200px;
+  color: #838383;
+}
+

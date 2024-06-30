@@ -1,0 +1,24 @@
+.platform-card {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  width: 18em;
+  height: auto;
+  border: 1px solid #999999;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px #d5d3d3;
+  cursor: pointer;
+  padding-top:0 ;
+}
+
+.card-icon {
+  height: 60px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.platform-card-info {
+  color: #3C3C3C;
+  font-size: 1.2em;
+  font-weight: 700;
+}

@@ -1,0 +1,44 @@
+.card {
+  display: flex;
+  align-items: center;
+  width: 18em;
+  height: 7em;
+  border: 1px solid #999999;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px #d5d3d3;
+  cursor: pointer;
+}
+
+.card-symbol {
+  width: 35%;
+  height: 50%;
+  margin: 0 10px;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 3em;
+  padding: 20px 0;
+  font-weight: bolder;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-title {
+  color: #7E22CE;
+  margin-bottom: 0;
+}
+
+.episodes {
+  font-size: 0.8em;
+  color: #3C3C3C;
+  margin-top: 0;
+}
+
+.weeks {
+  font-size: 0.8em;
+  color: #969696;
+  margin-bottom: 0;
+}
