@@ -5,7 +5,6 @@ import CreateProjectButton from "../../components/CreateProjectButton/CreateProj
 import "./SampleProjects.css";
 import axios from "axios";
 import SampleCard from "../../components/SampleCards/SampleCard";
-import { Link } from "react-router-dom";
 import { UserContext } from "../HomePage/Home";
 import Navbar from "../../components/Navbar/Navbar";
 
@@ -56,15 +55,17 @@ function SampleProjects() {
       </div>
       <div className="projects-grid">
         {cards.map((card, idx) => (
-          <div onClick={()=> handleClick()} style={{textDecoration: "none"}}><SampleCard 
-            key={card.id}
-            identifier={card.id}
-            projectTitle={card.projectTitle} 
-            episodes={card.episodes} 
-            weeks={card.episodes} 
-            projectSymbol={card.projectSymbol}
-            color={colors[idx]}
-          /></div>
+          <div onClick={()=> handleClick()} style={{textDecoration: "none"}}>
+            <SampleCard 
+              key={card.id}
+              identifier={card.id}
+              projectTitle={card.projectTitle} 
+              episodes={card.episodes} 
+              weeks={card.episodes} 
+              projectSymbol={card.projectSymbol}
+              color={colors[idx]}
+            />
+          </div>
         ))}
       </div>
     </div>

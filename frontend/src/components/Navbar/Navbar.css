@@ -35,3 +35,14 @@
   height: 50px;
   margin: 20px;
 }
+
+.settings-icon {
+  width: 40px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.bell-icon {
+  width: 50px;
+  cursor: pointer;
+}

@@ -1,12 +1,13 @@
+import { useState } from "react";
 import "./Table.css";
 
-export default function Table({data}) {
+export default function Table({data, setEditingStatus}) {
+
+  const handleEdit = () => {
+    setEditingStatus(true);
+  }
 
   const dateConverter = (timeStamp) => {
-    // let dateTime = timeStamp.split("T");
-    // let date = dateTime[0].split("-");
-    // let time = dateTime[1].split(":");
-    // let normalDate= new Date(date[0], date[1], date[2], time[0], time[1]);
     let localDate = new Date(timeStamp);
     let date = localDate.toDateString().split(" ");
     let time = localDate.toTimeString().split(":");
@@ -31,7 +32,7 @@ export default function Table({data}) {
               <td>{dateConverter(project.updatedAt)}</td>
               <td>Done</td>
               <td>
-                <button className="edit">Edit</button>
+                <button className="edit" onClick={() => handleEdit()}>Edit</button>
                 <button className="delete">Delete</button>
               </td>
             </tr>

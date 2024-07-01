@@ -32,7 +32,7 @@ function ModalProject({clicked, setClicked}) {
 
   return (
     <div className="modal">
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-content">
         <form onSubmit={(e) => handleSubmit(e)}>
           <h2>Create Project</h2>
           <label htmlFor="project-input">Enter Project Name:</label>

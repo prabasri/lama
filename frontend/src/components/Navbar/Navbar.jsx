@@ -18,8 +18,8 @@ export default function Navbar({user, settingsIcon}) {
       </div>
       <div className="menu">
         {(userUsingHook || user) && <img src={UserProfile} alt="user-image" className="user-image"/>}
-        {settingsIcon && <img src={SettingsIcon} alt="settings-icon" style={{marginRight: 20, width: 40}}/>}
-        <img src={BellIcon} alt="bell-icon" width={50}/>
+        {settingsIcon && <img src={SettingsIcon} alt="settings-icon" className="settings-icon"/>}
+        <img src={BellIcon} alt="bell-icon" className="bell-icon"/>
       </div>
     </div>
   )
