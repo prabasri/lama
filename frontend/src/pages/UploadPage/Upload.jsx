@@ -19,6 +19,7 @@ export default function Upload() {
   const user = useContext(UserContext);
   const [isEditing, setIsEditing] = useState(false);
   const [projects, setProjects] = useState([]);
+  const [projectToEdit, setProjectToEdit] = useState(null);
 
   const platformCards = [
     {
@@ -37,7 +38,7 @@ export default function Upload() {
       platform: "RSS"
     }
   ];
-  console.log(projects);
+  console.log(projectToEdit);
 
 
   return (
@@ -69,11 +70,11 @@ export default function Upload() {
                 <button className="select-button">Select file</button>
               </div>
             </>) : (
-              <Table data={projects} setEditingStatus={setIsEditing}/>
+              <Table data={projects} setEditingStatus={setIsEditing} setProjectToEdit={setProjectToEdit}/>
             )}
           </div>) : (
           <div>
-            <Editor/>
+            <Editor projectToEdit={projectToEdit} setProjectToEdit={setProjectToEdit}/>
           </div>
           )}
         </div>

@@ -66,6 +66,28 @@ app.get('/getData', async(req, res) => {
   }
 })
 
+app.get('/getData/:id', async(req, res) => {
+  console.log(req.params);
+  try {
+    const { id } = req.params;
+    const result = await Project.findById({ _id: id });
+    return res.send(result);
+  } catch(err) {
+    return res.status(500).json({ message: "Couldn't update blog post. Please try again" });
+  }
+})
+
+app.patch('/getData/:id', async(req, res) => {
+  console.log(req.body);
+  try {
+    const { id } = req.params;
+    const result = await Project.findOneAndUpdate({ _id: id }, req.body, {new : true});
+    return res.send(result);
+  } catch(err) {
+    return res.status(500).json({ message: "Couldn't update blog post. Please try again" });
+  }
+})
+
 app.get('/projects', (req, res) => {
   res.status(200).send([
     {

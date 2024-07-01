@@ -1,9 +1,17 @@
 import { useState } from "react";
+import axios from "axios";
 import "./Table.css";
 
-export default function Table({data, setEditingStatus}) {
+export default function Table({data, setEditingStatus, setProjectToEdit}) {
 
-  const handleEdit = () => {
+  const handleEdit = async(projectID) => {
+    try {
+      const project = await axios.get(`http://localhost:3000/getData/${projectID}`);
+      console.log(project);
+      setProjectToEdit(project.data);
+    } catch(err) {
+      console.log(err);
+    }
     setEditingStatus(true);
   }
 
@@ -32,7 +40,7 @@ export default function Table({data, setEditingStatus}) {
               <td>{dateConverter(project.updatedAt)}</td>
               <td>Done</td>
               <td>
-                <button className="edit" onClick={() => handleEdit()}>Edit</button>
+                <button className="edit" onClick={() => handleEdit(project._id)}>Edit</button>
                 <button className="delete">Delete</button>
               </td>
             </tr>
