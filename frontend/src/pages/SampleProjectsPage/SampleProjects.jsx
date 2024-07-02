@@ -7,6 +7,7 @@ import axios from "axios";
 import SampleCard from "../../components/SampleCards/SampleCard";
 import { UserContext } from "../HomePage/Home";
 import Navbar from "../../components/Navbar/Navbar";
+import { config } from "../../App";
 
 function SampleProjects() {
 
@@ -26,7 +27,7 @@ function SampleProjects() {
 
   const fetchProjects = async() => {
     try {
-      const result = await axios.get('http://localhost:3000/projects');
+      const result = await axios.get(`${config.endpoint}/projects`);
       setCards(result.data);
     } catch(err) {
       console.log(err);

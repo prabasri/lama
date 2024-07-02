@@ -4,6 +4,10 @@ import Home from "./pages/HomePage/Home";
 import SampleProjects from "./pages/SampleProjectsPage/SampleProjects";
 import Upload from './pages/UploadPage/Upload';
 
+export const config = {
+  endpoint: "https://lama-server.vercel.app/"
+}
+
 function App() {
 
   return (
