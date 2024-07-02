@@ -3,6 +3,7 @@ import "./ModalUpload.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ProjectsContext } from "../../pages/UploadPage/Upload";
+import { config } from "../../App";
 
 export default function ModalUpload({platformCardStatus, platform, icon}) {
 
@@ -32,7 +33,7 @@ export default function ModalUpload({platformCardStatus, platform, icon}) {
     }
     else {
       try {
-        await axios.post("http://localhost:5000/uploadedData", content);
+        await axios.post(`${config.endpoint}/uploadedData`, content);
       } catch(err) {
         console.log(err)
       }
@@ -43,7 +44,7 @@ export default function ModalUpload({platformCardStatus, platform, icon}) {
 
   const fetchData = async() => {
     try {
-      const response = await axios.get("http://localhost:5000/getData");
+      const response = await axios.get(`${config.endpoint}/getData`);
       setProjects(response.data);
     } catch(err) {
       console.log(err);

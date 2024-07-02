@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./ModalEmail.css";
 import axios from "axios";
+import { config } from "../../App";
 
 function ModalEmail({visibility, setVisibility, logged, setLogged, setUser}) {
 
@@ -21,7 +22,7 @@ function ModalEmail({visibility, setVisibility, logged, setLogged, setUser}) {
     if(email) {
       setIsValid(true);
       try {
-        await axios.post("http://localhost:5000/", {email: email})
+        await axios.post(`${config.endpoint}/`, {email: email})
       } catch(err) {
         console.log(err);
       }
@@ -35,7 +36,7 @@ function ModalEmail({visibility, setVisibility, logged, setLogged, setUser}) {
 
   const fetchUser = async() => {
     try {
-      const result = await axios.get('http://localhost:5000/getUser');
+      const result = await axios.get(`${config.endpoint}/getUser`);
       console.log(users);
       setUsers(result.data);
     } catch(err) {

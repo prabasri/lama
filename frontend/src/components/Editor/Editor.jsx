@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Editor.css";
 import axios from "axios";
+import { config } from "../../App";
 
 export default function Editor({projectToEdit, setProjectToEdit}) {
   const [editedData, setEditedData] = useState("");
@@ -13,7 +14,7 @@ export default function Editor({projectToEdit, setProjectToEdit}) {
 
   const handleSave = async(editedData) => {
     try {
-      const editProject = await axios.patch(`http://localhost:5000/getData/${projectToEdit._id}`, {description: editedData});
+      const editProject = await axios.patch(`${config.endpoint}/getData/${projectToEdit._id}`, {description: editedData});
       console.log(editProject);
       setEditModeOn(false);
     } catch(err) {

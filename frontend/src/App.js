@@ -5,7 +5,7 @@ import SampleProjects from "./pages/SampleProjectsPage/SampleProjects";
 import Upload from './pages/UploadPage/Upload';
 
 export const config = {
-  endpoint: "https://lama-server.vercel.app/"
+  endpoint: "https://lama-backend-k909.onrender.com",
 }
 
 function App() {

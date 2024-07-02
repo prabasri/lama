@@ -18,10 +18,6 @@ var db = mongoose.connection
 db.on('error',()=> console.log("Error in Connecting to Database"))
 db.once('open',()=> console.log("Connected to Database"))
 
-// app.get("/", cors(), async(req, res) => {
-//   res.send("Hello");
-// })
-
 app.post("/",  async(req, res) => {
   const {email} = req.body;
   console.log("form data", {email: email});

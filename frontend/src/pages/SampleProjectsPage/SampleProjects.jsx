@@ -15,15 +15,15 @@ function SampleProjects() {
   const user = useContext(UserContext);
   
   const [cards, setCards] = useState([]);
-  const [isClicked, setIsClicked] = useState(false);
+  const [createBtnClicked, setCreateBtnClicked] = useState(false);
   const colors = [];
 
   useEffect(() => {
     fetchProjects();
-    if(isClicked) {
+    if(createBtnClicked) {
       navigate('/');
     }
-  }, [isClicked]);
+  }, [createBtnClicked]);
 
   const fetchProjects = async() => {
     try {
@@ -53,17 +53,17 @@ function SampleProjects() {
       <BackButton/>
       <div className="projects-topic">
         <p className="title">Projects</p>
-        <CreateProjectButton setClicked={setIsClicked}/>
+        <CreateProjectButton setClicked={setCreateBtnClicked}/>
       </div>
       <div className="projects-grid">
         {cards.map((card, idx) => (
           <div onClick={()=> handleClick()} style={{textDecoration: "none"}}>
             <SampleCard 
-              key={card.id}
-              identifier={card.id}
+              key={card._id}
+              identifier={card._id}
               projectTitle={card.projectTitle} 
               episodes={card.episodes} 
-              weeks={card.episodes} 
+              weeks={card.weeks} 
               projectSymbol={card.projectSymbol}
               color={colors[idx]}
             />
