@@ -4,14 +4,14 @@ const mongoose = require('mongoose');
 const app = express();
 const User = require("./models/user");
 const Project = require('./models/project');
-const sampleProjectsRouter = require('./routes/sample-projects');
+const SampleProjectModel = require('./models/sampleProjects');
 
 const cors = require('cors');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use(cors());
-const PORT = 3000;
+const PORT = 5000;
 
 mongoose.connect("mongodb+srv://prabasri:prabasri65@lama.83rjorl.mongodb.net/?retryWrites=true&w=majority&appName=lama")
 var db = mongoose.connection
@@ -92,7 +92,18 @@ app.patch('/getData/:id', async(req, res) => {
   }
 })
 
-app.use('/api/v1/sample-projects', sampleProjectsRouter);
+app.get('/sample_projects', async(req, res) => {
+  console.log("Asking samples");
+  try {
+    const sample_projects = await SampleProjectModel.find();
+    console.log(sample_projects);
+    return res.status(200).send(sample_projects);
+  } catch(err) {
+    return res.send(err);
+  }
+})
+
+// app.use('/api/v1/sample-projects', sampleProjectsRouter);
 
 app.get('/projects', (req, res) => {
   res.status(200).send([

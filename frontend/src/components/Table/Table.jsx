@@ -6,7 +6,7 @@ export default function Table({data, setEditingStatus, setProjectToEdit}) {
 
   const handleEdit = async(projectID) => {
     try {
-      const project = await axios.get(`http://localhost:3000/getData/${projectID}`);
+      const project = await axios.get(`http://localhost:5000/getData/${projectID}`);
       console.log(project);
       setProjectToEdit(project.data);
     } catch(err) {

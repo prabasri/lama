@@ -32,7 +32,7 @@ export default function ModalUpload({platformCardStatus, platform, icon}) {
     }
     else {
       try {
-        await axios.post("http://localhost:3000/uploadedData", content);
+        await axios.post("http://localhost:5000/uploadedData", content);
       } catch(err) {
         console.log(err)
       }
@@ -43,7 +43,7 @@ export default function ModalUpload({platformCardStatus, platform, icon}) {
 
   const fetchData = async() => {
     try {
-      const response = await axios.get("http://localhost:3000/getData");
+      const response = await axios.get("http://localhost:5000/getData");
       setProjects(response.data);
     } catch(err) {
       console.log(err);

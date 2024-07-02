@@ -21,7 +21,7 @@ function ModalEmail({visibility, setVisibility, logged, setLogged, setUser}) {
     if(email) {
       setIsValid(true);
       try {
-        await axios.post("http://localhost:3000/", {email: email})
+        await axios.post("http://localhost:5000/", {email: email})
       } catch(err) {
         console.log(err);
       }
@@ -35,9 +35,9 @@ function ModalEmail({visibility, setVisibility, logged, setLogged, setUser}) {
 
   const fetchUser = async() => {
     try {
-      const result = await axios.get('http://localhost:3000/getUser');
-      setUsers(result.data);
+      const result = await axios.get('http://localhost:5000/getUser');
       console.log(users);
+      setUsers(result.data);
     } catch(err) {
       console.log(err);
     }
