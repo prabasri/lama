@@ -15,7 +15,7 @@ export default function SampleCard ({identifier, projectTitle, episodes, weeks, 
       <div className="card-info">
         <h3 className="project-title">{projectTitle}</h3>
         <p className="episodes">{episodes} Episodes</p>
-        <p className="weeks">Last edit {weeks} week ago</p>
+        <p className="weeks">Last edit {weeks === 1 ? "a" : weeks} week ago</p>
       </div>
     </div>
   )

@@ -28,6 +28,7 @@ function SampleProjects() {
   const fetchProjects = async() => {
     try {
       const result = await axios.get(`${config.endpoint}/projects`);
+      console.log(result);
       setCards(result.data);
     } catch(err) {
       console.log(err);

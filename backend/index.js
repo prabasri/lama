@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 const User = require("./models/user");
 const Project = require('./models/project');
+const sampleProjectsRouter = require('./routes/sample-projects');
 
 const cors = require('cors');
 app.use(bodyParser.json());
@@ -17,6 +18,9 @@ var db = mongoose.connection
 db.on('error',()=> console.log("Error in Connecting to Database"))
 db.once('open',()=> console.log("Connected to Database"))
 
+app.get("/", cors(), async(req, res) => {
+  res.send("Hello");
+})
 
 app.post("/",  async(req, res) => {
   const {email} = req.body;
@@ -87,6 +91,8 @@ app.patch('/getData/:id', async(req, res) => {
     return res.status(500).json({ message: "Couldn't update blog post. Please try again" });
   }
 })
+
+app.use('/api/v1/sample-projects', sampleProjectsRouter);
 
 app.get('/projects', (req, res) => {
   res.status(200).send([
