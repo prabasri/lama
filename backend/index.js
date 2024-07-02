@@ -11,16 +11,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use(cors());
-const PORT = 5000;
+const PORT = 3000;
 
 mongoose.connect("mongodb+srv://prabasri:prabasri65@lama.83rjorl.mongodb.net/?retryWrites=true&w=majority&appName=lama")
 var db = mongoose.connection
 db.on('error',()=> console.log("Error in Connecting to Database"))
 db.once('open',()=> console.log("Connected to Database"))
 
-app.get("/", cors(), async(req, res) => {
-  res.send("Hello");
-})
+// app.get("/", cors(), async(req, res) => {
+//   res.send("Hello");
+// })
 
 app.post("/",  async(req, res) => {
   const {email} = req.body;
