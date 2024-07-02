@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use(cors());
-const PORT = 3000;
+const PORT = 5000;
 
 mongoose.connect("mongodb+srv://prabasri:prabasri65@lama.83rjorl.mongodb.net/?retryWrites=true&w=majority&appName=lama")
 var db = mongoose.connection
